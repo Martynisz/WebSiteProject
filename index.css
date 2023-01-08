@@ -1,1 +1,5 @@
-h1 {color: crimson; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+body {background-color:cornsilk; width:90%; margin: 0 auto;}
+h1 {float:right;background-color: crimson; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color:dimgray; margin-right: 50px;}
+fieldset{background-color: darkgrey;border-width: 5px;border-color: black;border-style: dashed;box-shadow: 5px 5px dimgray;}
+td, tr{padding: 0px 0px;}
+img.przycisklogowania{float:right}
