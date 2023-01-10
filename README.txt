@@ -1,1 +1,0 @@
-Repozytorium dla utworzonych projektów stron internetowych
