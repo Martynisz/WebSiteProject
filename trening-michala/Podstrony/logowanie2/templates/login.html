@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+{% block title %}login{% endblock %}
+{% block content %}
+<form method="post">
+    <h3 align="centre">login</h3>
+    <div class="form-group">
+    <label for="email">Email Adress</label>
+    <input 
+    type="email" 
+    class="form-control" 
+    id="email" 
+    name="email" 
+    placeholder="Email adress">
+    <label for="password1">pasword here</label>
+    <input 
+    type="password" 
+    class="form-control" 
+    id="password1" 
+    name="password1" 
+    placeholder="password here">
+    </div>
+</form>
+<button type="submit" class="btn btn-primary">login</button>
+<p> to jest zawartosc strony</p>
+{{text}} {{user}}
+{% if bolean==true %}
+it is true
+{% endif %}
+{% endblock %}
