@@ -1,0 +1,21 @@
+Zmiany jakie dokonałam w repozytorium lokalnym:
+		zmiana		 -->			 plik 		-->		 ścieżka
+  							    config			c:/users/miwanicka/github/.git 
+[core]
+	repositoryformatversion = 0
+	filemode = true      <----
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/Martynisz/WebSiteProject.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main   
+[branch "miwanicka"]
+	remote = origin           <----
+	merge = refs/heads/miwanicka[branch "miwanicka"]
+
+NASTĘPNIE ROBISZ git pull i ściąga wszystkie zmiany. Teraz powinno być lepiej
