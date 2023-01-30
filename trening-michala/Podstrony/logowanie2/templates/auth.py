@@ -15,7 +15,7 @@ def login():
             login_user(user,remember=True)
             return redirect(url_for("views.home"))
 
-    return render_template("login.html", text="testing",user=current_user,bolean=True)
+    return render_template("login.html", text="testing", user=current_user,bolean=True)
 
 
 @auth.route("/logout")
@@ -34,7 +34,7 @@ def sign_up():
         password1=request.form.get("password1")
         password2=request.form.get("password2")
         if check_email(email) & pass_check(password1,password2) & name_check(firstname):
-            create_new_user(email,password1,firstname)
+            user=create_new_user(email,password1,firstname)
             login_user(user,remember=True)
             return redirect(url_for('views.home'))
         
@@ -45,6 +45,7 @@ def sign_up():
 def check_email(email):
     warun=True
     user=User.query.filter_by(email=email).first()
+    print(user)
     if user:
         flash("this email exists on site already",category="error")
         warun=False
@@ -76,7 +77,7 @@ def create_new_user(email,password,firstname):
     db.session.add(new_user)
     db.session.commit()
     flash("haslo,mail,nazwa prawidlowe --> konto utworzone",category="success")
-    return True
+    return new_user
 def login_check(email,password):
     user=User.query.filter_by(email=email).first()
     if user:
