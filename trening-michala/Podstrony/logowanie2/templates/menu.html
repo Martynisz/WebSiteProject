@@ -1,21 +1,20 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+
 <html>
     <head>
         <title>Strona silowni</title>
-        <link href="index.css" type="text/css" rel="stylesheet"/>
+        <link href="../static/index.css" type="text/css" rel="stylesheet"/>
+        <h1>Witaj na stronie {{ user }} </h1>
 
     </head>
 <fieldset>
-    <h1> licznik obciazenia na silowni</h1>
-    <a href="Podstrony/logowanie.html"><img class="przycisklogowania" src="images/logowanie.png" title="zaloguj sie"/></a>
-    
-
 <table>
     <tr>
         <td>
             <figure>
                 <fieldset class="kafelki">
-                <p><a href="Podstrony/maszyny.html"><img src="images/silownia.jpg" title="spisz maszyny z silowni" width="300" height="200" /></a></p>
+                <p><a href="/Podstrony/maszyny.html"><img src="../static/silownia.jpg" title="spisz maszyny z silowni" width="300" height="200" /></a></p>
                 <figcaption> Spisz wszystkie dostepne maszyny</figcaption>
                 </fieldset>    
             </figure>    
@@ -23,7 +22,7 @@
         <td>
             <figure>
                 <fieldset class="kafelki">
-                <p><a href="Podstrony/maszyny.html"><img src="images/Szwarceneger.jpg" title="Wybierz ćwiczenia jakie chcesz wykonać" width="300" height="200" /></a></p>
+                <p><a href="Podstrony/maszyny.html"><img src="../static/Szwarceneger.jpg" title="Wybierz ćwiczenia jakie chcesz wykonać" width="300" height="200" /></a></p>
                 <figcaption> Wybierz ćwiczenia jakie chcesz wykonać</figcaption>
                 </fieldset>    
             </figure>   
@@ -33,7 +32,7 @@
         <td>
             <figure>
                 <fieldset class="kafelki">
-                <p><a href="Podstrony/maszyny.html"><img src="images/plan.jpg" title="Podglad planu" width="300" height="200" /></a></p>
+                <p><a href="Podstrony/maszyny.html"><img src="../static/plan.jpg" title="Podglad planu" width="300" height="200" /></a></p>
                 <figcaption> Podglad planu</figcaption>
                 </fieldset>    
             </figure>    
@@ -41,7 +40,7 @@
         <td>
             <figure>
                 <fieldset class="kafelki">
-                <p><a href="Podstrony/maszyny.html"><img src="images/zeszyt.jpg" title="Wpisz wyniki treningu" width="300" height="200" /></a></p>
+                <p><a href="Podstrony/maszyny.html"><img src="../static/zeszyt.jpg" title="Wpisz wyniki treningu" width="300" height="200" /></a></p>
                 <figcaption> Wpisz wyniki treningu</figcaption>
                 </fieldset>    
             </figure>   
@@ -50,3 +49,4 @@
 </table>
 </fieldset>
 </html>
+{% endblock %}

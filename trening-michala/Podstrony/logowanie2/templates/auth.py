@@ -13,7 +13,7 @@ def login():
         if login_check(email, password):
             user=User.query.filter_by(email=email).first()
             login_user(user,remember=True)
-            return redirect(url_for("views.home"))
+            return redirect(url_for("views.menu"))
 
     return render_template("login.html", text="testing", user=current_user,bolean=True)
 
@@ -36,11 +36,29 @@ def sign_up():
         if check_email(email) & pass_check(password1,password2) & name_check(firstname):
             user=create_new_user(email,password1,firstname)
             login_user(user,remember=True)
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.menu'))
         
 
     
     return render_template("sign_up.html", user=current_user)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def check_email(email):
     warun=True
