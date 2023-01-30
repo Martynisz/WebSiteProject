@@ -15,7 +15,7 @@ def login():
             login_user(user,remember=True)
             return redirect(url_for("views.home"))
 
-    return render_template("login.html", text="testing",user="michu",bolean=True)
+    return render_template("login.html", text="testing",user=current_user,bolean=True)
 
 
 @auth.route("/logout")
@@ -40,7 +40,7 @@ def sign_up():
         
 
     
-    return render_template("sign_up.html")
+    return render_template("sign_up.html", user=current_user)
 
 def check_email(email):
     warun=True
