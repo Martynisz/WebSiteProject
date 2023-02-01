@@ -108,3 +108,10 @@ def login_check(email,password):
     else:
         flash("no such email found", category="error")
         return False
+
+def add_new_machines(email,password,firstname):
+    new_user=User(email=email,first_name=firstname,password=generate_password_hash(password,"sha256"))
+    db.session.add(new_user)
+    db.session.commit()
+    flash("haslo,mail,nazwa prawidlowe --> konto utworzone",category="success")
+    return new_user

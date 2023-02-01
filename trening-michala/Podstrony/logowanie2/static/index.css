@@ -1,6 +1,6 @@
-body {background-color:cornsilk; width:90%; margin: 0 auto;}
-h1 {float:right;background-color: black; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color:dimgray; margin-right: 27%;}
-fieldset.kafelki{background-color: rgb(169, 169, 169);border-width: 5px;border-color: black;border-style: dashed;box-shadow: 5px 5px dimgray;}
+body {background-color:white; width:90%; margin: 0 auto;}
+h1 {position: static;bottom: 100px ; float:right;background-color: black; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background-color:dimgray; margin-right: 27%;}
+fieldset.kafelki{position:fixed; left: 15%; bottom: 30% ; background-color: rgb(169, 169, 169);border-width: 5px;border-color: black;border-style: dashed;box-shadow: 5px 5px dimgray;}
 td, tr{padding: 0px 0px;}
 figcaption{
     justify-content: center;
