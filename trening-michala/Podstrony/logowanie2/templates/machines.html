@@ -3,7 +3,7 @@
 {% block content %}
 <form method="post">
 {% for machine in machines %}
-    <input type="checkbox" name="localmachines" value={{machine}}> {{machine}}<br>
+    <input type="checkbox" name="multiselect" value={{machine}}> {{machines[machine]}}<br>
 {% endfor %}
 <input type="submit" name="submit" value="submit">
 </form>

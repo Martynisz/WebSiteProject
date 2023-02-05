@@ -14,7 +14,6 @@ def login():
             user=User.query.filter_by(email=email).first()
             login_user(user,remember=True)
             return redirect(url_for("views.menu"))
-
     return render_template("login.html", text="testing", user=current_user,bolean=True)
 
 

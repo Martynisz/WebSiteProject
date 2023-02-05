@@ -8,14 +8,19 @@ from sqlalchemy import Table
 from sqlalchemy import Integer
 from sqlalchemy import String
 
-class Machines(db.Model):
+class Usermachines(db.Model):
     id=db.Column(db.Integer, primary_key=True)
-    machine=db.Column(db.String(10000),unique=True)
+    userid=db.Column(db.Integer,db.ForeignKey("user.id"))
+    machineid=db.Column(db.Integer,db.ForeignKey("machines.id"))
 
-class Allexcercises(db.Model):
+class machines(db.Model):
     id=db.Column(db.Integer, primary_key=True)
-    machine=db.Column(db.String(10000),db.ForeignKey("machines.machine"))
-    excercise=db.Column(db.String(10000),unique=True)
+    name=db.Column(db.String(30))
+
+#class Allexcercises(db.Model):
+#    id=db.Column(db.Integer, primary_key=True)
+#    machine=db.Column(db.String(10000),db.ForeignKey("machines.machine"))
+#    excercise=db.Column(db.String(10000),unique=True)
 
 class Plans(db.Model):
     id=db.Column(db.Integer, primary_key=True)
@@ -29,4 +34,6 @@ class User(db.Model, UserMixin):
     email=db.Column(db.String(150),unique=True)
     password=db.Column(db.String(150))
     first_name=db.Column(db.String(150))
+
+
     
