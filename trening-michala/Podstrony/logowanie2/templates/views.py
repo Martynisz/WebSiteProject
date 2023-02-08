@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
 from sqlalchemy import select, text, create_engine
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session,query,session
 from .import db, DB_NAME
 from .models import User, Usermachines
+from collections import namedtuple
 views=Blueprint("views",__name__)
 
 @views.route('/')
@@ -33,7 +34,6 @@ def machines():
 
 def listfromdb():
     result=db.session.execute("SELECT * FROM machines;")
-    from collections import namedtuple
     dictionary={}
     Record = namedtuple('Record', result.keys()) #tupla z całego wiersza db 
     records = [Record(*r) for r in result.fetchall()]
@@ -44,15 +44,30 @@ def listfromdb():
     #    print(r[0]) # Access by positional index
     #    print(r['first_name']) # Access by column name as a string
     #    r_dict = dict(r.id()) # convert to dict keyed by column names
+    # 
     return dictionary
 def addtousermachines(lista):
-    for i in lista:
-        print(i)
-        new_use_machine=Usermachines(userid=current_user.id,machineid=i)
-        db.session.add(new_use_machine)
+    if len(lista)>0:
+        d=db.session.query(Usermachines).filter(Usermachines.userid==current_user.id).delete(synchronize_session=False)
+        #querytolist(d)
+        h=db.session.query(Usermachines).filter(Usermachines.userid==current_user.id)
+        querytolist(h)
+        #print(len(db.session.execute(h)[1]))
+        db.session.commit()
+        for i in lista:
+            print(i)
+            new_use_machine=Usermachines(userid=current_user.id,machineid=i)
+            db.session.add(new_use_machine)
         db.session.commit()
         
-
+def querytolist(result):
+    result=db.session.execute(result)
+    dictionary={}
+    Record = namedtuple('Record', result.keys()) #tupla z całego wiersza db 
+    records = [Record(*r) for r in result.fetchall()]
+    for r in records:
+        dictionary.update({r.id:r.name})
+        print(dictionary[r.id])
 
 
 

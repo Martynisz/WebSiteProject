@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 from os import path
 from flask_login import LoginManager
 db=SQLAlchemy()
@@ -9,6 +11,10 @@ def create_app(__name__):
     app=Flask(__name__,template_folder="templates")
     app.config["SECRET_KEY"]="ASDASDSADASD"
     app.config["SQLALCHEMY_DATABASE_URI"]=f'sqlite:///{DB_NAME}'
+    engine=create_engine(app.config["SQLALCHEMY_DATABASE_URI"],echo=True)
+    db.metadata.create_all(bind=engine)
+    Session=sessionmaker(bind=engine)
+    session=Session()
     db.init_app(app)
 
     from .views import views
@@ -21,7 +27,6 @@ def create_app(__name__):
     with app.app_context():
         db.create_all()
         print("created database")
-        db.reflect()
     
     login_manager=LoginManager()
     login_manager.login_view="auth.login"
