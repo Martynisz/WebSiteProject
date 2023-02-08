@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<html>
+    <head>
+        <title>Strona silowni</title>
+        <link href="../static/index.css" type="text/css" rel="stylesheet"/>
+        <h1>Witaj na stronie {{ uname }} </h1>
+
+    </head>
+<p> </p>
+<fieldset class="kafelki">
+<table>
+    <tr>
+        <td>
+            <figure>
+                <fieldset >
+                <p><a href="/machines"><img src="../static/silownia.jpg" title="spisz maszyny z silowni" width="300" height="200" /></a></p>
+                <figcaption> Spisz wszystkie dostepne maszyny</figcaption>
+                </fieldset>    
+            </figure>    
+        </td>
+        <td>
+            <figure>
+                <fieldset >
+                <p><a href="Podstrony/maszyny.html"><img src="../static/Szwarceneger.jpg" title="Wybierz ćwiczenia jakie chcesz wykonać" width="300" height="200" /></a></p>
+                <figcaption> Wybierz ćwiczenia jakie chcesz wykonać</figcaption>
+                </fieldset>    
+            </figure>   
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <figure>
+                <fieldset >
+                <p><a href="Podstrony/maszyny.html"><img src="../static/plan.jpg" title="Podglad planu" width="300" height="200" /></a></p>
+                <figcaption> Podglad planu</figcaption>
+                </fieldset>    
+            </figure>    
+        </td>
+        <td>
+            <figure>
+                <fieldset >
+                <p><a href="Podstrony/maszyny.html"><img src="../static/zeszyt.jpg" title="Wpisz wyniki treningu" width="300" height="200" /></a></p>
+                <figcaption> Wpisz wyniki treningu</figcaption>
+                </fieldset>    
+            </figure>   
+        </td>
+    </tr>
+</table>
+</fieldset>
+</html>
+{% endblock %}
