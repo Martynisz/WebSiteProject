@@ -7,7 +7,6 @@ from sqlalchemy import Column
 from sqlalchemy import Table
 from sqlalchemy import Integer
 from sqlalchemy import String
-
 class Usermachines(db.Model):
     id=db.Column(db.Integer, primary_key=True)
     userid=db.Column(db.Integer,db.ForeignKey("user.id"))
